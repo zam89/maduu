@@ -1,6 +1,7 @@
 init.d file for server
 
 To be done:
+
 	* kippo init file
 		* mkdir /var/run/kippo
 		* chown -R kippo:kippo /var/run/kippo
