@@ -1,3 +1,3 @@
 Kippo hpfeeds module
 
-- put hpfeeds.py at /opt/kippo/dblog/
+- put hpfeeds.py at /opt/kippo/kippo/dblog/
