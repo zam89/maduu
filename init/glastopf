@@ -42,7 +42,7 @@ case "$1" in
     fi
     ;;
   restart)
-    echo "Restarting glastopf..."
+    echo "Restarting glastopf.."
     stop
     start
     ;;
