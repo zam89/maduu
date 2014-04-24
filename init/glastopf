@@ -1,0 +1,55 @@
+### BEGIN INIT INFO
+# Provides:          glastopf
+# Required-Start:
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Glastopf
+# Description:       Glastopf Web Honeypot
+#
+### END INIT INFO
+
+# Using the lsb functions to perform the operations.
+. /lib/lsb/init-functions
+
+start() {
+  echo "Starting glastopf..."
+  cd /opt/glaspot/
+  python /usr/local/bin/glastopf-runner &
+  disown
+  echo "."
+}
+
+stop() {
+  echo "Stopping glastopf..."
+  pkill -9 -f `ps aux | grep '[g]lastopf-runner' | grep -v grep | awk '{ print $2 }'`
+  echo "."
+}
+
+case "$1" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  status)
+    if ps aux | grep "[g]lastopf-runner" > /dev/null
+    then
+      echo "Glastopf is running..."
+    else
+      echo "Glastopf is not running..."
+    fi
+    ;;
+  restart)
+    echo "Restarting glastopf..."
+    stop
+    start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/glastopf {start|stop|status|restart}"
+    exit 1
+    ;;
+esac
+
+exit 0
