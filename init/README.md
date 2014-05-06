@@ -4,3 +4,4 @@ init.d file for server
 	* kippo init file
 	* glastopf init file
 	* p0f init file
+		* need to ensure that network interface is the right one
