@@ -5,3 +5,6 @@ init.d file for server
 	* glastopf init file
 	* p0f init file
 		* need to ensure that network interface is the right one
+	* feedbroker init file (hpfeeds broker)
+	* geoloc init file
+	* honeymap init file
