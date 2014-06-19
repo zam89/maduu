@@ -1,0 +1,55 @@
+### BEGIN INIT INFO
+# Provides:          honeymap
+# Required-Start:
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Honeymap
+# Description:       Honeymap Startup Script
+#
+### END INIT INFO
+
+# Using the lsb functions to perform the operations.
+. /lib/lsb/init-functions
+
+start() {
+  echo "Starting honeymap..."
+  cd /opt/honeymap/server/
+  ./server &
+  disown
+  echo "."
+}
+
+stop() {
+  echo "Stopping honeymap..."
+  pkill -9 -f `ps aux | grep './[s]erver' | grep -v grep | awk '{ print $2 }'`
+  echo "."
+}
+
+case "$1" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  status)
+    if ps aux | grep "./[s]erver" > /dev/null
+    then
+      echo "Honeymap is running..."
+    else
+      echo "Honeymap is not running..."
+    fi
+    ;;
+  restart)
+    echo "Restarting honeymap..."
+    stop
+    start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/honeymap {start|stop|status|restart}"
+    exit 1
+    ;;
+esac
+
+exit 0
