@@ -22,7 +22,7 @@ start() {
 
 stop() {
   echo "Stopping feedbroker..."
-  pkill -9 -f `ps aux | grep '[f]eedbroker' | grep -v grep | awk '{ print $2 }'`
+  kill -9 -f `ps aux | grep '[f]eedbroker' | grep -v grep | awk '{ print $2 }'`
   echo "."
 }
 
