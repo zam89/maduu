@@ -6,5 +6,5 @@ init.d file for server
 	* p0f init file
 		* need to ensure that network interface is the right one
 	* feedbroker init file (hpfeeds broker)
-	* geoloc init file
+	* geoloc init file (hpfeeds channel translator)
 	* honeymap init file
