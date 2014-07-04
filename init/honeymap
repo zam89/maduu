@@ -22,7 +22,7 @@ start() {
 
 stop() {
   echo "Stopping honeymap..."
-  pkill -9 -f `ps aux | grep './[s]erver' | grep -v grep | awk '{ print $2 }'`
+  kill -9 -f `ps aux | grep './[s]erver' | grep -v grep | awk '{ print $2 }'`
   echo "."
 }
 
