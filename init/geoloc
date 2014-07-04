@@ -22,7 +22,7 @@ start() {
 
 stop() {
   echo "Stopping geoloc..."
-  pkill -9 -f `ps aux | grep '[g]eoloc' | grep -v grep | awk '{ print $2 }'`
+  kill -9 -f `ps aux | grep '[g]eoloc' | grep -v grep | awk '{ print $2 }'`
   echo "."
 }
 
