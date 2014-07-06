@@ -20,16 +20,24 @@ PIDFILE=/var/run/kippo/kippo.pid
 
 start() {
   echo "Starting Kippo..."
-  sudo mkdir /var/run/kippo
-  sudo chown -R kippo:kippo /var/run/kippo
-  cd /opt/kippo/
-  sudo -u kippo /usr/bin/twistd -y /opt/kippo/kippo.tac -l /var/kippo/log/kippo.log --pidfile /var/run/kippo/kippo.pid -d /opt/kippo/
-  echo "."
+  if [ -d /var/run/kippo ];
+  then
+	  echo "Directory found.. Skip.."
+	  cd /opt/kippo/
+	  sudo -u kippo /usr/bin/twistd -y /opt/kippo/kippo.tac -l /var/kippo/log/kippo.log --pidfile /var/run/kippo/kippo.pid -d /opt/kippo/
+	  echo "."
+  else
+	  sudo mkdir /var/run/kippo
+	  sudo chown -R kippo:kippo /var/run/kippo
+	  cd /opt/kippo/
+	  sudo -u kippo /usr/bin/twistd -y /opt/kippo/kippo.tac -l /var/kippo/log/kippo.log --pidfile /var/run/kippo/kippo.pid -d /opt/kippo/
+	  echo "."
+  fi
 }
 
 stop() {
   echo "Stopping Kippo..."
-  kill -9 `cat /var/run/kippo/kippo.pid` 
+  kill `cat /var/run/kippo/kippo.pid`
   echo "."
 }
 
