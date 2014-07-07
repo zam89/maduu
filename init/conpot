@@ -1,0 +1,55 @@
+### BEGIN INIT INFO
+# Provides: conpot
+# Required-Start:
+# Required-Stop:
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Conpot
+# Description: Conpot ICS/SCADA Honetpot
+#
+### END INIT INFO
+
+# Using the lsb functions to perform the operations.
+. /lib/lsb/init-functions
+
+start() {
+  echo "Starting conpot..."
+  cd /opt/conpot/
+  python /usr/local/bin/conpot -c conpot/conpot.cfg -w conpot/templates/www/default/ &
+  disown
+  echo "."
+}
+
+stop() {
+  echo "Stopping conpot..."
+  kill `ps aux | grep '[c]onpot' | grep -v grep | awk '{ print $2 }'`
+  echo "."
+}
+
+case "$1" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  status)
+    if ps aux | grep "[c]onpot" > /dev/null
+    then
+      echo "Conpot is running..."
+    else
+      echo "Conpot is not running..."
+    fi
+    ;;
+  restart)
+    echo "Restarting conpot.."
+    stop
+    start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/conpot {start|stop|status|restart}"
+    exit 1
+    ;;
+esac
+
+exit 0
