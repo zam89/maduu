@@ -18,7 +18,7 @@ DAEMON=/opt/dionaea/bin/dionaea
 # pid file for the daemon
 PIDFILE=/opt/dionaea/var/dionaea.pid
 
-PARAMETERS="-l all,-debug -L '*' -p $PIDFILE -D"
+PARAMETERS="-l error -L '*' -p $PIDFILE -D"
 
 # If the daemon is not there, then exit.
 test -x $DAEMON || exit 5
