@@ -22,7 +22,7 @@ start() {
 
 stop() {
   echo "Stopping conpot..."
-  kill `ps aux | grep '[c]onpot' | grep -v grep | awk '{ print $2 }'`
+  kill -9 `ps aux | grep '[c]onpot' | grep -v grep | awk '{ print $2 }'`
   echo "."
 }
 
