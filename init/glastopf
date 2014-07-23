@@ -22,7 +22,7 @@ start() {
 
 stop() {
   echo "Stopping glastopf..."
-  kill -9 -f `ps aux | grep '[g]lastopf-runner' | grep -v grep | awk '{ print $2 }'`
+  kill -9 `ps aux | grep '[g]lastopf-runner' | grep -v grep | awk '{ print $2 }'`
   echo "."
 }
 
