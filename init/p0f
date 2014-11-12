@@ -46,6 +46,7 @@ case $1 in
   else
     log_end_msg 1
   fi
+  sudo chown nobody:nogroup /tmp/p0f.sock
   ;;
   stop)
   # Stop the daemon.
