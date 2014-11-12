@@ -9,8 +9,8 @@ sudo crontab -e
 ```
 
 TODO :
-1. stop p0f, delete /var/p0f/p0f.log
-2. stop dionaea, delete /opt/dionaea/var/log/*
-3. stop kippo, delete /var/kippo/log/*
-4. stop glastopf, delete /opt/glaspot/log/*
-5. start all service back again
+ 1. stop p0f, delete /var/p0f/p0f.log
+ 2. stop dionaea, delete /opt/dionaea/var/log/*
+ 3. stop kippo, delete /var/kippo/log/*
+ 4. stop glastopf, delete /opt/glaspot/log/*
+ 5. start all service back again
