@@ -23,12 +23,17 @@ start() {
   if [ -d /var/run/kippo ];
   then
     echo "Directory found.. Skip.."
+    sudo chown -R kippo:kippo /opt/kippo/
+    sudo chown -R kippo:kippo /var/kippo/
+    sudo chown -R kippo:kippo /var/run/kippo/
     cd /opt/kippo/
     sudo -u kippo /usr/bin/twistd -y /opt/kippo/kippo.tac -l /var/kippo/log/kippo.log --pidfile /var/run/kippo/kippo.pid -d /opt/kippo/
     echo "."
   else
     sudo mkdir /var/run/kippo
-    sudo chown -R kippo:kippo /var/run/kippo
+    sudo chown -R kippo:kippo /opt/kippo/
+    sudo chown -R kippo:kippo /var/kippo/
+    sudo chown -R kippo:kippo /var/run/kippo/
     cd /opt/kippo/
     sudo -u kippo /usr/bin/twistd -y /opt/kippo/kippo.tac -l /var/kippo/log/kippo.log --pidfile /var/run/kippo/kippo.pid -d /opt/kippo/
     echo "."
