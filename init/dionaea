@@ -43,6 +43,9 @@ case $1 in
    log_end_msg 1
   fi
   ;;
+  sudo chown nobody:nogroup /tmp/p0f.sock
+  sudo chown -R nobody:nogroup /opt/dionaea/var/dionaea
+  sudo chown -R nobody:nogroup /opt/dionaea/var/log
  stop)
   # Stop the daemon.
   if [ -e $PIDFILE ]; then
