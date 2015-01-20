@@ -42,7 +42,7 @@ start() {
 
 stop() {
   echo "Stopping Kippo..."
-  kill -9 `cat /var/run/kippo/kippo.pid`
+  sudo kill -9 `cat /var/run/kippo/kippo.pid`
   echo "."
 }
 
