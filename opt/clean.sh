@@ -1,7 +1,6 @@
 #!/bin/sh
 # Script to clean up log file in sensor
 #
-
 sudo /etc/init.d/p0f stop
 sudo /etc/init.d/dionaea stop
 sudo /etc/init.d/kippo stop
