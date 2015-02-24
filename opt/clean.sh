@@ -13,6 +13,7 @@ sudo rm -rf /opt/dionaea/var/dionaea/binaries/*
 sudo rm -rf /opt/dionaea/var/dionaea/bistreams/*
 sudo rm -rf /var/kippo/log/kippo.log*
 sudo rm -rf /opt/glaspot/log/*
+sudo cat /dev/null > /opt/bekasmadoo/running.log
 
 sudo /etc/init.d/p0f start
 sudo /etc/init.d/dionaea start
